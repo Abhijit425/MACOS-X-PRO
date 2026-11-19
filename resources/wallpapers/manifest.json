@@ -1,0 +1,100 @@
+[
+  {
+    "id": "sonoma-dawn",
+    "name": "Sonoma Dawn",
+    "category": "abstract",
+    "tone": "light",
+    "file": "sonoma-dawn.jpg"
+  },
+  {
+    "id": "sonoma-night",
+    "name": "Sonoma Night",
+    "category": "abstract",
+    "tone": "dark",
+    "file": "sonoma-night.jpg"
+  },
+  {
+    "id": "aurora",
+    "name": "Aurora",
+    "category": "abstract",
+    "tone": "dark",
+    "file": "aurora.jpg"
+  },
+  {
+    "id": "lagoon",
+    "name": "Lagoon",
+    "category": "abstract",
+    "tone": "light",
+    "file": "lagoon.jpg"
+  },
+  {
+    "id": "ridge-day",
+    "name": "Ridge — Day",
+    "category": "landscape",
+    "tone": "light",
+    "file": "ridge-day.jpg"
+  },
+  {
+    "id": "ridge-dusk",
+    "name": "Ridge — Dusk",
+    "category": "landscape",
+    "tone": "dark",
+    "file": "ridge-dusk.jpg"
+  },
+  {
+    "id": "ridge-night",
+    "name": "Ridge — Night",
+    "category": "landscape",
+    "tone": "dark",
+    "file": "ridge-night.jpg"
+  },
+  {
+    "id": "dunes",
+    "name": "Dunes",
+    "category": "landscape",
+    "tone": "light",
+    "file": "dunes.jpg"
+  },
+  {
+    "id": "coast",
+    "name": "Coast",
+    "category": "landscape",
+    "tone": "light",
+    "file": "coast.jpg"
+  },
+  {
+    "id": "graphite",
+    "name": "Graphite",
+    "category": "dark",
+    "tone": "dark",
+    "file": "graphite.jpg"
+  },
+  {
+    "id": "obsidian",
+    "name": "Obsidian Ring",
+    "category": "dark",
+    "tone": "dark",
+    "file": "obsidian.jpg"
+  },
+  {
+    "id": "paper",
+    "name": "Paper",
+    "category": "minimal",
+    "tone": "light",
+    "file": "paper.jpg"
+  },
+  {
+    "id": "mist",
+    "name": "Mist",
+    "category": "minimal",
+    "tone": "light",
+    "file": "mist.jpg"
+  },
+  {
+    "id": "midnight",
+    "name": "Midnight",
+    "category": "minimal",
+    "tone": "dark",
+    "file": "midnight.jpg"
+  }
+]

@@ -1,0 +1,20 @@
+import { Resvg } from '@resvg/resvg-js';
+import fs from 'node:fs';
+const s = `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b8cff"/><stop offset=".55" stop-color="#7b4dff"/><stop offset="1" stop-color="#e2499a"/></linearGradient>
+<linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".12"/></linearGradient>
+<filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect x="64" y="72" width="896" height="896" rx="210" fill="#000" opacity=".28" filter="url(#sh)"/>
+<rect x="64" y="56" width="896" height="896" rx="210" fill="url(#bg)"/>
+<rect x="64" y="56" width="896" height="448" rx="210" fill="#fff" opacity=".08"/>
+<rect x="232" y="250" width="560" height="380" rx="56" fill="url(#gl)" stroke="#fff" stroke-opacity=".7" stroke-width="10"/>
+<circle cx="290" cy="300" r="16" fill="#ff5f57"/><circle cx="338" cy="300" r="16" fill="#febc2e"/><circle cx="386" cy="300" r="16" fill="#28c840"/>
+<path d="M430 400 L594 560 M594 400 L430 560" stroke="#fff" stroke-width="54" stroke-linecap="round"/>
+<rect x="300" y="700" width="424" height="92" rx="46" fill="#fff" opacity=".85"/>
+<circle cx="372" cy="746" r="24" fill="#5b8cff"/><circle cx="452" cy="746" r="24" fill="#7b4dff"/><circle cx="532" cy="746" r="24" fill="#e2499a"/><circle cx="612" cy="746" r="24" fill="#28c840"/>
+</svg>`;
+fs.writeFileSync('build/icon.svg', s);
+fs.writeFileSync('build/icon.png', new Resvg(s, { fitTo: { mode: 'width', value: 1024 } }).render().asPng());
+fs.writeFileSync('src/renderer/public/icon.png', new Resvg(s, { fitTo: { mode: 'width', value: 256 } }).render().asPng());

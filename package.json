@@ -1,0 +1,103 @@
+{
+  "name": "macos-x-pro",
+  "productName": "MACOS X PRO",
+  "version": "1.0.0",
+  "description": "A macOS-inspired desktop experience for Windows",
+  "author": "Abhijit",
+  "license": "MIT",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build:main": "node scripts/build-main.mjs",
+    "build:renderer": "vite build",
+    "build": "npm run build:main && npm run build:renderer",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "wallpapers": "node scripts/gen-wallpapers.mjs",
+    "dist": "npm run build && node scripts/make-installer.mjs"
+  },
+  "dependencies": {
+    "koffi": "^3.3.8",
+    "sql.js": "^1.17.0",
+    "systeminformation": "^5.33.23"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/sql.js": "^1.4.11",
+    "@vitejs/plugin-react": "^6.3.0",
+    "autoprefixer": "^10.6.2",
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0",
+    "esbuild": "^0.28.2",
+    "music-metadata": "^12.7.0",
+    "postcss": "^8.5.33",
+    "resedit": "^3.1.1",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "framer-motion": "^14.14.0",
+    "lucide-react": "^1.76.0"
+  },
+  "build": {
+    "appId": "com.abhijit.macosxpro",
+    "productName": "MACOS X PRO",
+    "copyright": "© 2026 Abhijit",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "package.json",
+      "!node_modules/koffi/{src,vendor,doc}/**",
+      "!node_modules/@koromix/**",
+      "!node_modules/**/*.{md,map,ts,mts}",
+      "!node_modules/**/{test,tests,docs,example,examples}/**"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/koffi",
+        "to": "koffi"
+      },
+      {
+        "from": "resources/wallpapers",
+        "to": "wallpapers"
+      },
+      {
+        "from": "resources/icon.ico",
+        "to": "icon.ico"
+      },
+      {
+        "from": "resources/tray.png",
+        "to": "tray.png"
+      }
+    ],
+    "npmRebuild": false,
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "signAndEditExecutable": false
+    },
+    "electronLanguages": [
+      "en-US",
+      "en-GB",
+      "hi",
+      "bn"
+    ],
+    "compression": "maximum"
+  }
+}

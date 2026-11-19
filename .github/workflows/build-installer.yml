@@ -1,0 +1,44 @@
+name: Build Windows installer
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install NSIS
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "${env:ProgramFiles(x86)}\NSIS\makensis.exe")) { choco install nsis -y --no-progress }
+      - run: npm ci
+      - run: npm run typecheck
+      - name: Build installer
+        env:
+          MAKENSIS: C:\Program Files (x86)\NSIS\makensis.exe
+        run: npm run dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MACOS-X-PRO-Setup
+          path: release/MACOS-X-PRO-Setup-*.exe
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          name: MACOS X PRO 1.0.0
+          make_latest: true
+          files: release/MACOS-X-PRO-Setup-*.exe
+          body: |
+            Windows 10/11 x64 installer for MACOS X PRO.
+            Download **MACOS-X-PRO-Setup-1.0.0.exe** below and run it. The installer is not code-signed: if SmartScreen warns, click **More info → Run anyway**.
